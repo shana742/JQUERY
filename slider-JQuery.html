@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+    <style>
+        .slider{
+            width: 90%;
+            height: 600px;
+            margin: 50px auto;
+            position: relative;
+            box-shadow: 0px 0px 10px 3px grey;
+            overflow: hidden;
+            border: 5px solid #3949ab;
+        }
+        .slider figure{
+            margin: 0px;
+            position: relative;
+            width: 500%;
+            left: 0px;
+            transition: 1s ease-in-out;
+        }
+        .slider figure img{
+            width: 20%;
+            height: 100%;
+            float: left;
+        }
+        .btn-prev, .btn-next{
+            position: absolute;
+            top: 45%;
+            cursor: pointer;
+            /* color: #fff; */
+            background: #3949ab;
+            padding: 20px;
+            font-size: 50px;
+            border: none;
+        }
+        .btn-next{
+            right: 0px;
+        }
+        .btn-prev{
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <figure>
+            <img src="img/bornpink.jpg" alt="">
+            <img src="img/bp.jpg" alt="">
+            <img src="img/bp2019.jpg" alt="">
+            <img src="img/bpencore 2.jpg" alt="">
+            <img src="img/bpencore.jpg" alt="">
+        </figure>
+
+        <button class="btn-prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="btn-next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+   <script>
+         $(document).ready(function(){
+            x = 0;
+            
+            $('.btn-next').click(function(){
+              x = (x<=300)?(x+100):0;
+
+              $('figure').css('left', -x+"%");
+            });
+               $('.btn-prev').click(function () {
+                 x = (x <= 100) ? (x + 100) : 0;
+
+                 $('figure').css('left', -x + "%");
+             });  
+         });
+   </script>
+</body>
+</html>
